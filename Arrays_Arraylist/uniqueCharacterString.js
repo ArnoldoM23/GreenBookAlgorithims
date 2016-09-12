@@ -1,18 +1,18 @@
+// Implement an algorithm to determine if a string has all unique characters. 
+// You can only use arrays.
+
 var unique = function(string){
-	var alphabet = ['a','b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-	if (string.lengh > alphabet.lengh) {
+	var alphabet = [];
+	if (string.lengh > 26) {
 		return false;
 	}
-
+	for(var i = 0; i < string.length; i++){
+		if (alphabet.indexOf(string[i]) === -1) {
+			alphabet.push(string[i]);
+		}else{
+			return false;
+		}
+	}
+	return true;
 }
-
-// split each string to check if it is unique.
-
-// check characters with the alphabet to make sure that it is unique
-
-// create and array with the alphabet.
-
-// check the lengh of string
- // if greater than 
-
-// loop over the string use i as the flag 
+console.log(unique("uniqe "))
