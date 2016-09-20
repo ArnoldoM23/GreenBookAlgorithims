@@ -46,7 +46,6 @@ var asyncMap = function(tasks, callback){
 			tasks[i](cb, i)
 		}
 		function cb(value , i){
-			console.log('this is i= ', counter, value)
 			results.unshift(value);
 			counter++
 			if (counter === tasks.length) {
