@@ -33,6 +33,13 @@
 
 var shuffleDeck = function(deck) {
   // Your code here
+  for (var i = 0; i < deck.length; i++) {
+    var random = Math.floor((Math.random() * deck.length) );
+    var current = deck[i];
+    deck[i] = deck[random];
+    deck[random] = current;
+  }
+   return deck;
 };
 
 // Ordered deck generator provided for your testing convenience
@@ -50,3 +57,13 @@ var orderedDeck = function() {
 
   return deck;
 };
+
+
+var deck = orderedDeck();
+   // ["A♥","2♥","3♥",...,"J♦","Q♦","K♦"]
+ console.log(shuffleDeck(deck));
+ // ["2♠","J♣","A♦", ... ,"7♣","8♣","K♠"]
+
+
+
+
