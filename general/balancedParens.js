@@ -23,33 +23,51 @@
  *
  *
  */
-var balancedParens = function(input){
-	var stack = [];
-	var brackets = {
-		"[": "]",
-		"{": "}",
-		"(": ")"
-	};
 
-	var flag = false;
-	for(var i = 0; i < input.length; i++){
-		if (input[i] === "{" || input[i] === "(" || input[i] === "[") {
-			stack.push(input[i]);
-		}
-		if (input[i] === "}" || input[i] === ")" || input[i] === "]") {
-			var current = stack.pop();
-			if (brackets[current] === input[i]) {
-				flag = true;
-			}else{
-				return false;
-			}
-		}
-	}
-	if (stack.length > 0) {
-		return false;
-	}
-	return flag;
-};
+// implemented with reduce
+
+var balancedParens = function(string){
+	console.log('test',!1)
+	return !string.split('').reduce(function(prev, curr){
+		if(prev < 0) {return prev}
+		if (curr === "{" || curr === "(" || curr === "[") { return ++prev}
+		if (curr === "}" || curr === ")" || curr === "]") { return --prev}
+		return prev;
+	}, 0)
+}
+console.log(balancedParens('))'))
+
+
+
+// implemented with a stack.
+
+// var balancedParens = function(input){
+// 	var stack = [];
+// 	var brackets = {
+// 		"[": "]",
+// 		"{": "}",
+// 		"(": ")"
+// 	};
+
+// 	var flag = false;
+// 	for(var i = 0; i < input.length; i++){
+// 		if (input[i] === "{" || input[i] === "(" || input[i] === "[") {
+// 			stack.push(input[i]);
+// 		}
+// 		if (input[i] === "}" || input[i] === ")" || input[i] === "]") {
+// 			var current = stack.pop();
+// 			if (brackets[current] === input[i]) {
+// 				flag = true;
+// 			}else{
+// 				return false;
+// 			}
+// 		}
+// 	}
+// 	if (stack.length > 0) {
+// 		return false;
+// 	}
+// 	return flag;
+// };
 
 
 
