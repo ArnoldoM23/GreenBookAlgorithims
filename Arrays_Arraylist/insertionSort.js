@@ -52,13 +52,13 @@ var insertionSort = function(array) {
 		for(var j= 0; j < i; j++){
 			var numBeforeCI = array[j];
 			if( currentIndex && numBeforeCI){
+		// if the current num is less than numBefore swap places.
 				if(currentIndex.value < numBeforeCI.value){
 					var splicing = array.splice(i, 1)
 					array.splice(j, 0, splicing);
 				}
 			}
 		}
-		// if the current num is less than numBefore swap places.
 	}
   // Your code goes here. Feel free to add helper functions if needed.
   return array;
