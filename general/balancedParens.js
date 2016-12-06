@@ -27,15 +27,15 @@
 // implemented with reduce
 
 var balancedParens = function(string){
-	console.log('test',!1)
+
 	return !string.split('').reduce(function(prev, curr){
 		if(prev < 0) {return prev}
-		if (curr === "{" || curr === "(" || curr === "[") { return ++prev}
-		if (curr === "}" || curr === ")" || curr === "]") { return --prev}
+		if ( curr === "(" ) { return ++prev}
+		if ( curr === ")" ) { return --prev}
 		return prev;
 	}, 0)
 }
-console.log(balancedParens('))'))
+console.log(balancedParens('()()'))
 
 
 
