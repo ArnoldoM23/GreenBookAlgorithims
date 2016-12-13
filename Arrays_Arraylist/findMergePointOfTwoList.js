@@ -2,10 +2,7 @@ const findMergePoint = (list1, list2) => {
 	const hash = {};
 	let longestList = list1.size > list2.size ? list1.head : list2.head;
 	let smallestList = list1.size < list2.size ? list1.head : list2.head;
-	
-	 console.log(longestList)
 	while(longestList.next) {
-		
 		hash[longestList.value] = longestList.next.value;
 		longestList = longestList.next;
 	}
