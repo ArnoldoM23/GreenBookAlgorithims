@@ -22,21 +22,21 @@
 
 var nthFibonacci = function (n) {
   // TODO: implement me!
- 	// if(n <= 2) {
+ 	// if(n <= 2 ) {
  	// 	return 1;
  	// }
- 	// return nthFibonacci(n - 1) + nthFibonacci(n - 2);
+ 	// return nthFibonacci(n -1) + nthFibonacci(n - 2)
 
- 	let Fibonacci = [1,1];
- 	while(n > 2) {
+ 	let Fibonacci = [1,1]
+ 	while(n > 2){
  		let prev = Fibonacci.shift();
- 		Fibonacci.push((prev + Fibonacci[0]));
+ 		Fibonacci.push(prev + Fibonacci[0])
  		n--
  	}
- 	return Fibonacci[1];
+ 	return Fibonacci[1]
 };
 
 
 
 
-console.log(nthFibonacci(40))
+console.log(nthFibonacci())
