@@ -1,0 +1,14 @@
+{
+  "name": "alldiagonals",
+  "version": "1.0.0",
+  "description": "Implement function to find all major and minor diagonals in a matrix",
+  "main": "allDiagonals.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "asyncmemoize",
+  "version": "1.0.0",
+  "description": "Implement asynchronous memoize function",
+  "main": "asyncMemoize.js",
+  "scripts": {
+    "test": "mocha asyncMemoize_mocha.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "sinon": "^1.17.6",
+    "mocha": "^3.1.0"
+  }
+}
