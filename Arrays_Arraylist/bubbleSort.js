@@ -32,21 +32,17 @@
 
 var bubbleSort = function (array) {
   // Your code here.
-  var keepSorting = false;
+  let flag = false;
   for (var i = 0; i < array.length; i++) {
-  	if (array[i] > array[i + 1]) {
-  		var current = array[i];
-      var temp = array[i + 1];
-  		array[i] = temp;
-  		array[i + 1] = current;
-  		keepSorting = true;
-  	}
+    if (array[i] > array[i + 1] ) {
+      //swap
+      const temp = array[i];
+      array[i] = array[i + 1];
+      array[i + 1] = temp;
+      flag = true;
+    }
   }
-
-  if (keepSorting) {
-  	return bubbleSort(array)
-  }
-  return array;
+  return flag ? bubbleSort(array) : array
 };
 
-console.log(bubbleSort([12, 2,1 , 3,23,5,4, 8]));
+console.log(bubbleSort([12, 2,1 , 3,1,23,5,4, 8]));

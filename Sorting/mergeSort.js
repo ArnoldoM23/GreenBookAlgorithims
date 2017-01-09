@@ -95,39 +95,28 @@
  *
  */
 var merge = function(arr1, arr2){
-	// console.log(arr1, arr2)
-	var result = [];
-	var count = 0;
-	var len = Math.max(arr1.length, arr2.length);
-	for (var i = 0; i < len; i++) {
-		if (arr1[count] < arr2[i]) {
-			result.push(arr1[count]);
-			count++;
-		}else{
-			result.push(arr2[i]);
+	const merged = [];
+	if (true) {}
+	while(arr1.length || arr2.length){
+		if (arr1[0] < arr2[0]) {
+			merged.push(arr1.shift());
+		}else {
+			merged.push(arr2.shift());
 		}
 	}
-	console.log(result)
-	return result
+	return merged;
 }
 
 
 var mergeSort = function(array) {
   // Your code here.
-  if (array.length < 2) {
-  	return array
-  }
-	var middle = Math.floor(array.length / 2);
-	var left  = array.slice(0, middle);
-	var right = array.slice(middle);
-	console.log(left, right)
-	return merge( left, right );
-
+ 	let test = array.map(val => [val]);
+ 	return test;
 };
 
 
 
-console.log(mergeSort([4,7,4,3,9,1,2]))
+console.log(merge([1,2],[3,4]))
 
 
 
