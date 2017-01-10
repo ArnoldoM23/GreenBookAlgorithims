@@ -24,12 +24,22 @@
 
 const rotateMatrix45 = matrix => {
   // Your crappy code here
+  const rotatedMatrix = [];
+  matrix.forEach((sub, i) => {
+    let counter = i;
+    sub.forEach((val, j) => {
+      if (!rotatedMatrix[counter]) {
+        rotatedMatrix[counter] = [];
+      } 
+      rotatedMatrix[counter++].unshift(val)
+    })
+  })
+  return rotatedMatrix;
 };
 
 
 
 /*  --=*=--  Tests below.  Do not modify.  --=*=--  */
-
 const expect = require('chai').expect;
 const matrix = require('./inputsAndOutputs.js').matrix;
 const answer = require('./inputsAndOutputs.js').answer;
