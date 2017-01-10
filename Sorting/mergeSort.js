@@ -96,12 +96,15 @@
  */
 var merge = function(arr1, arr2){
 	const merged = [];
-	if (true) {}
 	while(arr1.length || arr2.length){
-		if (arr1[0] < arr2[0]) {
-			merged.push(arr1.shift());
-		}else {
-			merged.push(arr2.shift());
+		if (arr1.length && arr2.length) {
+			if (arr1[0] <= arr2[0]) {
+				merged.push(arr1.shift());
+			}else if (arr1[0] > arr2[0]) {
+				merged.push(arr2.shift());
+			}
+		}else{
+			arr1.length ? merged.push(arr1.shift()) : merged.push(arr2.shift())
 		}
 	}
 	return merged;
@@ -110,13 +113,25 @@ var merge = function(arr1, arr2){
 
 var mergeSort = function(array) {
   // Your code here.
- 	let test = array.map(val => [val]);
- 	return test;
+  // iterative approach
+ 	// let test = array.map(val => [val]);
+ 	// while(test.length !== 1){
+ 	// 	test.push(merge(test.shift(), test.shift()))
+ 	// }
+ 	// return test[0];
+
+ 	// recursive way.
+ 	if (array.length === 1) {
+ 		return array;
+ 	}
+ 	const midPoint = Math.floor(array.length / 2);
+ 	return merge( mergeSort(array.slice(0, midPoint)), mergeSort(array.slice(midPoint)))
+
 };
 
 
 
-console.log(merge([1,2],[3,4]))
+console.log(mergeSort( [5,4,3,1,2]))
 
 
 
