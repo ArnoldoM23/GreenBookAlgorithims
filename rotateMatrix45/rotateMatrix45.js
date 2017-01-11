@@ -37,7 +37,7 @@ const rotateMatrix45 = matrix => {
   return rotatedMatrix; 
 };
 
-console.log( rotateMatrix45([ [10,11],[12,13], [14,15] ]) )
+// console.log( rotateMatrix45([ [10,11],[12,13], [14,15] ]) )
 
 
 

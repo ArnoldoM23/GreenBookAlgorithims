@@ -34,11 +34,104 @@
  *              |  [15,17],
  *              |  [18]]
  */
-
 const allDiagonals = matrix => {
   // Your crappy code here
+  const newMatrix = [];
+  const length = matrix.length;
+  if (length === 1) {
+  	return matrix
+  }
+  
+  for (var i = length - 1; i >= 0 ; i--) {
+  	if(i === 0){
+  		newMatrix.push(makeDiagnolArray(i, 0, length, matrix, "MAJOR"))
+  		matrix[0].forEach((val, j) => {
+  			if (j !== 0) {
+  				newMatrix.push(makeDiagnolArray(i, j, length, matrix, "MAJOR"))
+  			}
+  		})
+  		newMatrix.push([matrix[i][i]])
+  	}else{
+  		
+  		newMatrix.push(makeDiagnolArray(i, 0, length, matrix, "MAJOR"))	
+  	}
+  }
+
+  if (matrix[0].length === 1) {
+  	newMatrix.pop();
+  	return newMatrix;
+  }
+
+  for (var i = 0; i < length ; i++) {
+  	if(i === 0){
+  		matrix[0].forEach((val, j) => {
+  			if (j !== 0 ) {
+  				newMatrix.push(makeDiagnolArray(i, j, length, matrix, "MINOR"))
+  			}
+  		})
+  	}else{
+  		if (i === length - 1) {
+  			newMatrix.push([matrix[i][matrix[i].length - 1]])
+  			return newMatrix
+  		}else{
+
+  			newMatrix.push(makeDiagnolArray(i, matrix[i].length - 1, length, matrix, "MINOR"))
+  		}
+  	}
+  }
+  return newMatrix;
 };
 
+
+function makeDiagnolArray(i, start, end, matrix, majorMinor) {
+  const diagonals = [];
+  for(let j = i; j < end; j++){
+    if (matrix[i][start] !== undefined) {
+      diagonals.push(matrix[i][start]);
+      if(majorMinor === "MAJOR"){
+	      i++;
+	      start++;
+	    }
+	    if (majorMinor === "MINOR") {
+	      i++;
+	      start--;
+	    }
+    }else{
+    	return diagonals
+    }
+  }
+  return diagonals;
+}
+
+
+
+
+
+// for (var i = 0; i < matrix.length; i++) {
+//   matrix[i]
+//   if (i === 0 || i === matrix.length - 1) {
+//     newMatrix.push([matrix[i][0]]);
+//     newMatrix.push([matrix[i][matrix[i].length - 1]]);
+//   }
+//   if (i === 0) {
+//     matrix[i].forEach((val, j )=>{
+//       if(j === 0){
+//         newMatrix.push( makeDiagnolArray(i,j, matrix.length, matrix,"MAJOR") )
+//       }else if (j === matrix[i].length - 1) {
+//         newMatrix.push( makeDiagnolArray(i,j, matrix.length, matrix,"MINOR") )
+//       }else{
+//         newMatrix.push(makeDiagnolArray(i, j, matrix.length, matrix, "MAJOR"))
+//         newMatrix.push(makeDiagnolArray(i, j, matrix.length, matrix, "MINOR"))
+//       }
+//     })
+//   }else
+//   if (i !== matrix.length - 1) {
+//     newMatrix.push(makeDiagnolArray(i, 0, matrix.length, matrix, "MAJOR"))
+//     newMatrix.push(makeDiagnolArray(i, matrix[i].length - 1, matrix.length, matrix, "MINOR"))
+//   }
+// }
+
+console.log(allDiagonals([[10],[13]]))
 
 
 /*  --=*=--  Tests below.  Do not modify.  --=*=--  */
