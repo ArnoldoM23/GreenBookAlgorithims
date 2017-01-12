@@ -19,11 +19,11 @@ var allAnagrams = function(string) {
 // create a subrutine that will recurse. It should take an empty string will use to add the letters of each anagram. The second parameter should be the string that we are making anagrams of.
   (function anagram (ana, str) {
     // base case. If the string being passed in is empty create a new property in our storage object with the anagram as the key and give it a value of 1 or true.
-    if (str === '') { uniqueOutput[ana] = 1; }
+    if (str === '') { uniqueOutput[ana] = true; }
 // loop over the length of the string that is being passed in.
-    for (var i = 0; i < str.length; i++) {
-    // invoke the recursive function passing in the empty and concatate it with the current letter. The second parameter will be the string being sliced starting at zero and slicing the number of i. plus concatate it with the another slice of the string starting at i plus one.
-      anagram(ana + str[i], str.slice(0, i) + str.slice(i + 1));
+    for(let i = 0; i < str.length; i++){
+    // invoke the recursive function passing in the empty string and concatnate it with the current letter. The second parameter will be the string being sliced starting at zero and slicing the number of i. plus concatate it with the another slice of the string starting at i plus one.
+      anagram(`${ana}${str[i]}`, `${str.slice(0, i)}${str.slice(i + 1)}`)
     }
     // invoke the recursive function passing in an empty string as the anagram and the string being checked as the second parameter.
   })('', string);
@@ -32,32 +32,7 @@ var allAnagrams = function(string) {
 };
 
 
-
-
-function getAllAnagrams(string){
-  var allAnagrams = {};
-  function getAnagram(anagram, string){
-    if (string === '') { allAnagrams[anagram] = 1;}
-    for (var i = 0; i < string.length; i++) {
-      // for the first iteration
-      // b , abc
-      // call recurse
-       // for the first iteration of the first iteration
-      // a+b = ab, c
-      // call recurse
-       // for the first iteration of the first iteration  iteration
-       // ab+c = abc, ''
-      // for the second iteration of the first iteration
-      // a+c =ac, b
-      // ac+b =acb , ''
-      getAnagram(anagram + string[i], string.slice(0, i) + string.slice(i + 1))
-    }
-  };
-  getAnagram('', string);
-  return Object.keys(allAnagrams);
-};
-
-
+console.log(allAnagrams('abc'))
 
 
 

@@ -14,6 +14,13 @@
 
 var allAnagrams = function(string) {
   // Your code here.
-  
+  var uniqueOutput = {};
+  (function anagram (ana, str) {
+    if (str === '') { uniqueOutput[ana] = true; }
+    for(let i = 0; i < str.length; i++){
+      anagram(`${ana}${str[i]}`, `${str.slice(0, i)}${str.slice(i + 1)}`)
+    }
+  })('', string);
+  return Object.keys(uniqueOutput);
 };
 console.log(allAnagrams('abc'))
