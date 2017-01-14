@@ -38,17 +38,28 @@
 
 var characterFrequency = function(string) {
 	const characters = {};
+	const result = [];
+	let counter = 0;
 	for (var i = 0; i < string.length; i++) {
 		if(!characters[string[i]]) {
-			characters[string[i]] = 1;
+			characters[string[i]] = { index: counter };
+			result[counter] = [string[i], 1]
+			counter++
 		}else{
-			characters[string[i]]++;
+			result[characters[string[i]].index][1]++ ;
 		}
 	}
-	return characters
+	result.sort((a, b) => {
+		if (a[1] === b[1]) {
+			return a[0] > b[0];
+		} else{
+			return a[1] < b[1];
+		}
+	})
+	return result
   // return result;
 };
 
 
-console.log(characterFrequency('aabbc'))
+console.log(characterFrequency('miaaiaaippi'))
 
