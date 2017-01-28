@@ -36,26 +36,26 @@
 
 // This function is to help you test, and should not be incorporated in your solution.
 // It will transform an array of numbers into an array of valid objects.
-// var testingTransform = function(array) {
-//   var transform = [];
+var testingTransform = function(array) {
+  var transform = [];
   
-//   for (var i = 0; i < array.length; i++)
-//     transform.push({value: array[i], i: i});
-// 	}
-//   return transform;
-// };
+  for (var i = 0; i < array.length; i++){
+    transform.push({value: array[i], i: i});
+	}
+  return transform;
+};
 
 function swap(index, array) {
-		if (index === 0) { return }
-		if (array[index].value < array[index - 1].value) {
-			const temp = array[index - 1];
-			array[index - 1] = array[index];
-			array[index] = temp;
-			swap(index - 1, array);
-		}else {
-			return;
-		}
-	} 
+	if (index === 0) { return }
+	if (array[index].value < array[index - 1].value) {
+		const temp = array[index - 1];
+		array[index - 1] = array[index];
+		array[index] = temp;
+		swap(index - 1, array);
+	}else {
+		return;
+	}
+} 
 
 var insertionSort = function(array) {
 	
@@ -68,7 +68,7 @@ var insertionSort = function(array) {
   return array;
 };
 
-console.log("test",insertionSort([{value: 10}, {value: 1, order: 1}, {value: 2}, {value: 4}, {value: 8 }, {value: 3, order: 2}]) )
+console.log("test",insertionSort([{value: 10}, {value: 1, order: 1}, {value: 2}, {value: 4}, {value: 8 }, {value: 1, order: 2}]) )
 
 
 
