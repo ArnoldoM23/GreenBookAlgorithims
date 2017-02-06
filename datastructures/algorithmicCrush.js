@@ -26,19 +26,41 @@
 // Sample Output
 
 // 200
-
+const fs = require('fs')
 
 function algorithmicCrush(input) {
     var splitInput = input.split('\n').map(function(val){ return val.split(' ')})
     var list = {};
     var maxVal = 0;
+    let count = 1
+    var start= Number(splitInput[count][0]);
+    var end = Number(splitInput[count][1]);
+    var operation = splitInput[count];
+    console.log(start, end)
+
+
     for(var i= 1; i <= Number(splitInput[0][0]); i++){
       list[i] = 0;
     }
-    for(var i = 1; i < splitInput.length; i++){
-      var operation = splitInput[i];
-      addToList(Number(operation[0]), Number(operation[1]), Number(operation[2]), list);
+    // for(var i = 1; i < splitInput.length; i++){
+    //   var operation = splitInput[i];
+    //   addToList(Number(operation[0]), Number(operation[1]), Number(operation[2]), list);
+    // }
+
+
+
+    while(start++ <= end){
+      list[start] += Number(operation[2])
+      if (start === end) {
+        count++
+        start= Number(splitInput[count][0]);
+        end = Number(splitInput[count][1]);
+      }
     }
+
+
+
+
     for(var key in list){
       if(maxVal < list[key]){
         maxVal = list[key];
@@ -54,3 +76,9 @@ function addToList(start, end, value, list){
     }
     return 
 }
+
+
+const input = fs.readFileSync('./algorithmicInput', 'utf8')
+// console.log(input)
+
+algorithmicCrush(input)

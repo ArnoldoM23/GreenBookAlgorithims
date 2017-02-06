@@ -36,15 +36,33 @@ function Node(value){
 }
 
 var hasCycle = function(linkedList){
+  // Time complexity: O(n) = linear 
+  // Space complexity: O(n) = linear 
+
   // TODO: implement me!
-  const recentNodes = {}
-  while(linkedList.next){
-    if (recentNodes[linkedList.value]) {
-      return true;
-    }
-    recentNodes[linkedList.value] = true;
-    linkedList = linkedList.next;
-  } 
+  // const recentNodes = {}
+  // while(linkedList.next){
+  //   if (recentNodes[linkedList.value]) {
+  //     return true;
+  //   }
+  //   recentNodes[linkedList.value] = true;
+  //   linkedList = linkedList.next;
+  // } 
+  // return false;
+
+  // Time complexity: O(n) = linear 
+  // Space complexity: O(1) = costant 
+
+  var slow = linkedList;
+  var fast = linkedList;
+  var pause = true;
+
+  while(fast = fast.next) {
+    if (fast === slow) { return true; }
+    slow = pause ? slow : slow.next;
+    pause = !pause;
+  }
+
   return false;
 };
 
