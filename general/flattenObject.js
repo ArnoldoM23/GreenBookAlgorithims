@@ -35,6 +35,7 @@ function flattenObj(obj) {
 			makeFlat(key, obj[key]);
 		}
 	}
+	
 	function makeFlat(string, obj){
 		for(var key in obj){
 			if (Array.isArray(obj[key]) || typeof obj[key] === 'string' || typeof obj[key] === 'number') {

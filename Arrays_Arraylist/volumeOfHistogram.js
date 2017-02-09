@@ -17,10 +17,8 @@ function flatten(input){
 	while(placeholder.length){
 		input = placeholder.pop();
 		i = lastIndex.pop() + 1;
-		console.log("placeholder", placeholder, "lastIndex", lastIndex)
 		for (; i < input.length; i++) {
 			if (Array.isArray(input[i])) {
-				console.log("inside if",input[i])
 				placeholder.push(input);
 				lastIndex.push(i);
 				input = input[i];

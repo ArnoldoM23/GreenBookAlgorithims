@@ -10,7 +10,6 @@
 var knapsack = function(maxWeight, stolenGoods) {
   var maxWorth = 0;
   function recurse (count, weight, worth, cache){
-  	console.log('before making recursive call', weight, worth, cache)
   	if(worth > maxWorth){
       maxWorth = worth;
     }  
