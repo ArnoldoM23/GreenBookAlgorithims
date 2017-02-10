@@ -13,6 +13,7 @@ SetOfStacks.prototype.push = function(value) {
 		this.stackContainer.push([]);
 		this.stackContainer[this.stackContainer.length - 1].push(value);
 	}
+	// time complexity is O(1);
 };
 
 SetOfStacks.prototype.pop = function() {
@@ -22,7 +23,25 @@ SetOfStacks.prototype.pop = function() {
 		this.stackContainer.pop();
 		return this.stackContainer[this.stackContainer.length - 1].pop();
 	}
+	// time complexity is O(1);
 }
+
+SetOfStacks.prototype.popAtIndex = function(index) {
+	const poped = this.stackContainer[index].pop();
+
+	for(var i = index + 1; i < this.stackContainer.length; i++){
+		if (this.stackContainer[i].length) {
+			this.stackContainer[i - 1].push(this.stackContainer[i].shift());
+		} else {
+			this.stackContainer.pop()
+		}
+	}
+
+
+	// can just return pop item at index if you dont care for arranging stacks
+	// return this.stackContainer[index].pop();
+}
+
 
 const stacksOnStack = new SetOfStacks();
 stacksOnStack.push(1)
@@ -34,5 +53,9 @@ stacksOnStack.push(6)
 stacksOnStack.push(7)
 console.log(stacksOnStack.stackContainer)
 stacksOnStack.pop()
-
+stacksOnStack.popAtIndex(1)
+stacksOnStack.popAtIndex(0)
+stacksOnStack.pop()
+stacksOnStack.popAtIndex(0)
+stacksOnStack.pop()
 console.log(stacksOnStack.stackContainer)

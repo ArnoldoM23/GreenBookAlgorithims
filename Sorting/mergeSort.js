@@ -115,7 +115,7 @@ var mergeSort = function(array) {
   // Your code here.
   // iterative approach
  	// let test = array.map(val => [val]);
- 	// while(test.length !== 1){
+ 	// while(test.length !== 1) {
  	// 	test.push(merge(test.shift(), test.shift()))
  	// }
  	// return test[0];
