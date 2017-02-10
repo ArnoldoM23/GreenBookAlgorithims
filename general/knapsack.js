@@ -33,6 +33,7 @@ var knapsack = function(maxWeight, stolenGoods) {
       
     }  
   }
+  
   for (var i = 0; i < stolenGoods.length; i++) {
   	var cache = {};
   	cache[stolenGoods[i].weight] = true;
@@ -41,7 +42,7 @@ var knapsack = function(maxWeight, stolenGoods) {
   return maxWorth;
 }
 
-console.log(knapsack(5, [ {weight:7, worth:80}, {weight:2, worth:400}, {weight:1, worth:50}, {weight:3, worth:500}, {weight:3, worth:5000}]));
+console.log(knapsack(15, [ {weight:7, worth:80}, {weight:2, worth:400}, {weight:1, worth:50}, {weight:3, worth:500}, {weight:3, worth:5000}]));
 
 
 
@@ -94,5 +95,5 @@ console.log(knapsack(5, [ {weight:7, worth:80}, {weight:2, worth:400}, {weight:1
 // var W = 50;
 // var n = val.length;
 
-console.log(knapsack(W, wt, val, n));
+// console.log(knapsack(W, wt, val, n));
 
