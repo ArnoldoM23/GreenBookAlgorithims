@@ -20,4 +20,4 @@ function removedDuplicated(linklist){
 }
 
 
-console.log(removedDuplicated())
+console.log(removedDuplicated({value: 1, next: {value: 2, next:{value: 3, next:null}}}))
