@@ -16,4 +16,5 @@ function isPalindrome(linkedList) {
 	return originalList === reversed;
 }
 
-console.log(isPalindrome({value: 1, next: {value: 5, next:{ value: 1, next:null }}}))
+console.assert(isPalindrome({value: 1, next: {value: 5, next:{ value: 1, next:null }}}) === true);
+console.assert(isPalindrome({value: 1, next: {value: 5, next:{ value: 2, next:null }}}) === false);

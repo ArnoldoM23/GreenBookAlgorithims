@@ -1,3 +1,5 @@
+// Intersection: Given two (singly) linked lists, determine if the two lists intersect. Retrun the intesectind node. Node that
+
 const findMergePoint = (list1, list2) => {
 	const hash = {};
 	let longestList = list1.size > list2.size ? list1.head : list2.head;
@@ -8,7 +10,7 @@ const findMergePoint = (list1, list2) => {
 	}
 	while(smallestList.next){
 		if (hash[smallestList.value] === smallestList.next.value) {
-			return smallestList.next.value;
+			return smallestList;
 		}
 		smallestList = smallestList.next;
 	}
