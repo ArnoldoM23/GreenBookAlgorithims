@@ -1,4 +1,4 @@
-// Intersection: Given two (singly) linked lists, determine if the two lists intersect. Retrun the intesectind node. Node that
+// Intersection: Given two (singly) linked lists, determine if the two lists intersect. Retrun the intesectind node. Node that the intersection is defined vased on reference, not value. That is, if theKth node of the first liked list the exact same node (by reference) as the Jth node of the second linked list, then they are intersecting.
 
 const findMergePoint = (list1, list2) => {
 	const hash = {};
